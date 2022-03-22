@@ -5,14 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="normalize.css">
     <title>Typer</title>
 </head>
 <body>
     <div class="background">
+        <div id="nav" class="nav-wrapper">
+            <span>Difficulty</span>
+            <select name="diff" id="diff-select">
+                <option value="easy">easy</option>
+                <option value="medium">medium</option>
+                <option value="difficult">difficult</option>
+            </select>
+        </div>
         <div class="game-zone">
             <div class="title-wrapper">
-                <span>Speed Typer</span>
+                <span>👩‍💻 Speed Typer 👨‍💻</span>
             </div>
             <div class="time-wrapper">
                 <span>Time Left: <span id="time">10s</span></span>
@@ -29,7 +37,9 @@
                     autofocus
                 >
             </div>
+            <div id="end-game-zone" class="end-game-zone"></div>
         </div>
+        <button id="btn-setting" class="btn-setting">⚙️</button>
     </div>
     <script src="script.js"></script>
 </body>
