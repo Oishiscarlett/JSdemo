@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card</title>
+    <link rel="stylesheet" href="/memory-card/normalize.css">
+    <link rel="stylesheet" href="/memory-card/style.css">
+    <link rel="preload" href="//at.alicdn.com/t/font_3280296_b5bhcp5s3fe.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_3280296_owoik3sil9k.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content-container">
+            <div class="title-container">
+                <span id="title">Memory Cards</span>
+                <button id="add-new">➕Add New Card</button>
+            </div>
+            <div class="card-container">
+                <button id="filp-btn">
+                    <i class="iconfont icon-sync-alt">Flip</i>
+                </button>
+            </div>
+            <div class="arrow-container">
+                <button id="left-btn">
+                    <i class="iconfont icon-arrow-left"></i>
+                </button>
+                <span>1/1</span>
+                <button id="right-btn">
+                    <i class="iconfont icon-arrow-right"></i>
+                </button>
+                
+            </div>
+        </div>
+        <div class="clear-container">
+            <button id="clear-btn">
+                <i class="iconfont icon-delete-fill"></i>
+                <span>Clear Cards</span>
+            </button>
+        </div>
+    </div>
+    <div class="new-container">
+        <div class="new-content-container">
+            <div class="new-title-container">
+                <span id="new-title">Add New Card</span>
+                <button id="delete-btn">x</button>
+            </div>
+            <div class="input-container">
+                <div class="que-container">
+                    <div>Question</div>
+                    <textarea name="que" id="que" cols="50" rows="6"></textarea>
+                </div>
+                <div class="ans-container">
+                    <div>Answer</div>
+                    <textarea name="ans" id="ans" cols="50" rows="6"></textarea>
+                </div>
+            </div>
+            <button id="add-btn">+Add Card</button>
+        </div>
+    </div>
+</body>
+</html>
