@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,6 +18,7 @@
                 <button id="add-new">➕Add New Card</button>
             </div>
             <div class="card-container">
+                <p id="content"></p>
                 <button id="filp-btn">
                     <i class="iconfont icon-sync-alt">Flip</i>
                 </button>
@@ -26,7 +27,7 @@
                 <button id="left-btn">
                     <i class="iconfont icon-arrow-left"></i>
                 </button>
-                <span>1/1</span>
+                <span id="card-count">1/1</span>
                 <button id="right-btn">
                     <i class="iconfont icon-arrow-right"></i>
                 </button>
@@ -44,20 +45,21 @@
         <div class="new-content-container">
             <div class="new-title-container">
                 <span id="new-title">Add New Card</span>
-                <button id="delete-btn">x</button>
+                <button id="delete-btn">❌</button>
             </div>
             <div class="input-container">
                 <div class="que-container">
                     <div>Question</div>
-                    <textarea name="que" id="que" cols="50" rows="6"></textarea>
+                    <textarea name="que" id="que" cols="65" rows="3" placeholder="Enter question..."></textarea>
                 </div>
                 <div class="ans-container">
                     <div>Answer</div>
-                    <textarea name="ans" id="ans" cols="50" rows="6"></textarea>
+                    <textarea name="ans" id="ans" cols="65" rows="3" placeholder="Enter Answer..."></textarea>
                 </div>
             </div>
             <button id="add-btn">+Add Card</button>
         </div>
     </div>
+    <script src="/memory-card/script.js"></script>
 </body>
 </html>
