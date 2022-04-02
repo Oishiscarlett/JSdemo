@@ -1,13 +1,13 @@
 const cardEl = document.getElementsByClassName("card-container")[0];
 const cardNumEl = document.getElementById("card-count");
-const addNewCardBtn = document.getElementById("add-new");
 const containerEl = document.getElementsByClassName("container")[0];
+const newContainerEl = document.getElementsByClassName("new-container")[0];
 const queEl = document.getElementById("que");
 const ansEl = document.getElementById('ans');
-const contentEl = document.getElementById('content');
+
+const addNewCardBtn = document.getElementById("add-new");
 const addBtn = document.getElementById("add-btn");
 const delBtn = document.getElementById("delete-btn");
-const filpBtn = document.getElementById("filp-btn");
 const lBtn = document.getElementById("left-btn");
 const rBtn = document.getElementById("right-btn");
 const clearBtn = document.getElementById("clear-btn");
@@ -15,7 +15,7 @@ const clearBtn = document.getElementById("clear-btn");
 
 let cardIndex = 1;
 let cardSum = 0;
-let QAs = [];
+let cards = [];
 
 
 // 更新下标
@@ -33,9 +33,33 @@ function setCardNum() {
 function showCard() {
     cardSum++;
     cardIndex = 1;
+    cards[cardIndex - 1].className = "card show-card";
     setCardNum();
+}
 
-    contentEl.innerHTML = QAs[cardIndex - 1].que;
+// 创建一个新的卡片
+function createCard(que,ans) {
+    let cardDiv = document.createElement("div");
+    cardDiv.className = 'card';
+    let cardQuestion = document.createElement('p');
+    cardQuestion.id = "question";
+    let cardAnswer = document.createElement('p');
+    cardAnswer.id = "answer";
+    cardAnswer.className = "inshow-text";
+    cardQuestion.textContent = que;
+    cardAnswer.textContent = ans;
+    let icon = document.createElement("i"); 
+    icon.className = "iconfont icon-sync-alt";
+    icon.textContent = "Flip";
+
+    
+    cardDiv.appendChild(cardQuestion);
+    cardDiv.appendChild(cardAnswer);
+    cardDiv.appendChild(icon);
+
+    cards.push(cardDiv);
+
+    cardEl.appendChild(cardDiv);
 }
 
 
@@ -48,6 +72,7 @@ function showCard() {
 addNewCardBtn.addEventListener('click', e => {
     // 隐藏当前页面
     containerEl.style.display = 'none';
+    newContainerEl.style.display = 'block';
 });
 
 // 添加页--添加卡片按钮
@@ -56,12 +81,9 @@ addBtn.addEventListener('click', e => {
     const ansText = ansEl.value;
 
     if (queText && ansText) {
-        let obj = {
-            que: queText,
-            ans: ansText
-        };
-        QAs.push(obj);
         containerEl.style.display = 'block';
+        newContainerEl.style.display = 'none';
+        createCard(queText, ansText);
         showCard();
         queEl.value = null;
         ansEl.value = null;
@@ -71,43 +93,49 @@ addBtn.addEventListener('click', e => {
 // 返回上一页
 delBtn.addEventListener('click', e => {
     containerEl.style.display = 'block';
+    newContainerEl.style.display = 'none';
 });
 
 // 点击反转卡片
-filpBtn.addEventListener('click', e => {
-    if (contentEl.innerHTML === QAs[cardIndex - 1].que) {
-        contentEl.innerHTML = QAs[cardIndex - 1].ans;
-    } else {
-        contentEl.innerHTML = QAs[cardIndex - 1].que;
-    }
+cardEl.addEventListener('click', e => {
+    // 事件委托
+    // closet 选最近的div，可以解决点击flip按钮无效的情况
+    let target = e.target.closest('div');
+    let que = target.firstChild;
+    let ans = target.childNodes[1];
+    que.classList.toggle('inshow-text');
+    ans.classList.toggle('inshow-text');
 });
 
 // 上一张卡片
 lBtn.addEventListener('click', e => {
     if (cardIndex - 1 > 0) {
-        cardEl.className = 'card-container left-active';
+        cards[cardIndex - 1].className = "card ";
         cardIndex--;
-        contentEl.innerHTML = QAs[cardIndex - 1].que;
+        cards[cardIndex - 1].className = "card show-card";
         cardNumEl.innerHTML = cardIndex + '/' + cardSum;
-        cardEl.className = 'card-container';
     } 
 });
 
 // 下一张卡片
 rBtn.addEventListener('click', e => {
     if (cardIndex + 1 <= cardSum) {
+        cards[cardIndex - 1].className = "card show-left";
         cardIndex++;
-        contentEl.innerHTML = QAs[cardIndex - 1].que;
+        cards[cardIndex - 1].className = "card show-card";
         cardNumEl.innerHTML = cardIndex + '/' + cardSum;
     }
 });
 
 // 清空卡片
 clearBtn.addEventListener('click', e => {
-    QAs = [];
+    cards = [];
     cardIndex = 1;
     cardSum = 0;
     setCardNum();
 });
 
 setCardNum();
+
+// TODO: 翻转卡片动画
+// TODO: 优化：将卡片内容存在本地

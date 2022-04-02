@@ -5,6 +5,7 @@
 .new-container{
     height: 100vh;
     background-color: #f0f0f0;
+    display: none;
 }
 
 .content-container{
@@ -39,27 +40,49 @@ button {
     background-color: white;
     border: 1px solid gray;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .card-container {
     position: relative;
+    width: 500px;
+    height: 300px;
+    /* opacity: 0;
+    transform: translateX(50%) rotateY(-10deg);
+    transition: transform 0.4s ease, opacity 0.4s ease; */
+    
+}
+
+.card {
+    position: absolute;
     background-color: white;
     width: 500px;
     height: 300px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    opacity: 0;
-    transform: translateX(50%) rotateY(-10deg);
-    transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-#content {
-    height: 92%;
-    width: 100%;
     font-size: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    z-index: 2;
+    transform: translateX(50%) rotateY(-10deg);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.show-card {
+    cursor: pointer;
+    z-index: 10;
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+}
+
+.show-left {
+    transform: translateX(-50%) rotateY(-10deg);
+}
+
+.inshow-text{
+    display: none;
 }
 
 .icon-sync-alt{
@@ -67,7 +90,7 @@ button {
     font-weight: bold;
 }
 
-.card-container button {
+.card-container i {
     position: absolute;
     top: 10px;
     right: 5px;
@@ -133,14 +156,4 @@ textarea{
     height: 40px;
     width: 120px;
     margin: 10px 0;
-}
-
-.aaaa{
-    opacity: 1;
-    transform: translateX(0) rotateY(0);
-}
-
-.left-active{
-    opacity: 0;
-    transform: translateX(-50%) rotateY(10deg);
 }
