@@ -1,0 +1,49 @@
+.box1 {
+    margin: 100px auto;
+    width: 500px;
+    height: 500px;
+    background-color: antiquewhite;
+}
+
+.container {
+    /* 指定宽高，避免高度塌陷 */
+    width: 100px;
+    height: 100px;
+    /*  */
+    transform-style: preserve-3d;
+    transition: transform 0.4s;
+}
+
+/* 
+    正反卡片共有属性 
+    卡片的正反面实际上是两个不同的元素
+*/
+.box2{
+    width: 100px;
+    height: 100px;
+    background-color: #bfa;
+
+    /* 脱离文档流，使正反两面重叠 */
+    position: absolute;
+
+    /* 使卡片的背面不可见 */
+    /* 如果不设置，会导致代表卡片背面的元素被卡片正面的元素遮挡 */
+    backface-visibility: hidden;
+}
+
+/* 卡片正面元素 */
+.front {
+    transform: rotateX(0deg);
+}
+
+/* 卡片背面元素 */
+/* 先翻180度 */
+.back {
+    transform: rotateX(180deg);
+}
+
+/* 添加给卡片正反面的父元素 */
+/* 父元素翻转180度，相当于把正面的卡片翻到背面，把背面的卡片翻到正面 */
+.rotate {
+    transform: rotateX(180deg);
+}

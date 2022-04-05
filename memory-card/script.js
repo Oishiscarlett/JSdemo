@@ -43,19 +43,25 @@ function createCard(que,ans) {
     cardDiv.className = 'card';
     let cardQuestion = document.createElement('p');
     cardQuestion.id = "question";
+    cardQuestion.classList.add("show-front");
     let cardAnswer = document.createElement('p');
     cardAnswer.id = "answer";
-    cardAnswer.className = "inshow-text";
+    cardAnswer.classList.add("show-back");
     cardQuestion.textContent = que;
     cardAnswer.textContent = ans;
-    let icon = document.createElement("i"); 
-    icon.className = "iconfont icon-sync-alt";
-    icon.textContent = "Flip";
+    let iconFront = document.createElement("i"); 
+    iconFront.className = "iconfont icon-sync-alt";
+    iconFront.textContent = "Flip";
 
+    let iconBack = document.createElement("i");
+    iconBack.className = "iconfont icon-sync-alt";
+    iconBack.textContent = "Flip";
+
+    cardQuestion.appendChild(iconFront);
+    cardAnswer.appendChild(iconBack);
     
     cardDiv.appendChild(cardQuestion);
     cardDiv.appendChild(cardAnswer);
-    cardDiv.appendChild(icon);
 
     cards.push(cardDiv);
 
@@ -101,10 +107,7 @@ cardEl.addEventListener('click', e => {
     // 事件委托
     // closet 选最近的div，可以解决点击flip按钮无效的情况
     let target = e.target.closest('div');
-    let que = target.firstChild;
-    let ans = target.childNodes[1];
-    que.classList.toggle('inshow-text');
-    ans.classList.toggle('inshow-text');
+    target.classList.toggle('rotate-text');
 });
 
 // 上一张卡片
@@ -137,5 +140,4 @@ clearBtn.addEventListener('click', e => {
 
 setCardNum();
 
-// TODO: 翻转卡片动画
 // TODO: 优化：将卡片内容存在本地
