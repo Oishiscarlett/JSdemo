@@ -29,3 +29,7 @@ transition: margin-right 4s ease-in-out 1s;
 /* 设置元素的子元素处于3d空间中 */
 transform-style: preserve-3d;
 ```
+
+## 03 day-countdown
+布局知识点：
+1. 背景图片自适应，铺满整个屏幕

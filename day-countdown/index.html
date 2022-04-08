@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Countdown</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading">
+        <img src="./img/spinner.gif">
+    </div>
+    <div class="container">
+        <div class="countdown-container">
+            <div class="countdown-name">
+                攒够六便士去追月亮🌙
+            </div>
+            <div class="countdown-time">
+                <div class="countdown-time-container" id="days-container">
+                    <div class="time" id="days"></div>
+                    <div class="label">days</div>
+                </div>
+                <div class="countdown-time-container" id="hours-container">
+                    <div class="time" id="hours"></div>
+                    <div class="label">hours</div>
+                </div>
+                <div class="countdown-time-container" id="minutes-container">
+                    <div class="time" id="minutes"></div>
+                    <div class="label">minutes</div>
+                </div>
+                <div class="countdown-time-container" id="seconds-container">
+                    <div class="time" id="seconds"></div>
+                    <div class="label">seconds</div>
+                </div>
+            </div>
+        </div>
+        <div class="date-container">
+            some day
+        </div>
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>

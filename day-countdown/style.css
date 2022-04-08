@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+body {
+    height: 100vh; 
+    background-size: 100% 100%;
+    background-image: url(./home4.png);
+    font-family: 'Lato', sans-serif;
+}
+
+#loading {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    flex-direction: column;
+    display: none;
+}
+
+.countdown-container{
+    flex: 1.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+
+.countdown-name {
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.countdown-time-container {
+    float: left;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    font-size: 50px;
+}
+
+.label {
+    font-size: 28px;
+}
+
+.date-container {
+    flex: 1;
+}
+
+
+.date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 110px;
+    color: rgba(255, 255, 255, 0.7);
+}
